@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>パララックスのサンプルサイト</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style>
+
+#num {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+div{
+	height: 1800px;	
+}
+</style>
+<script>
+$(function(){
+	$(window).scroll(function(){
+		var y = $(this).scrollTop();
+		$("#num").text("スクロール量：" + y);//表示用
+	});
+});
+</script>
+</head>
+
+<body>
+
+<h1>パララックスのスクロール量取得</h1>
+<div><p id="num">ここに数値を表示</p></div>
+</body>
+</html>

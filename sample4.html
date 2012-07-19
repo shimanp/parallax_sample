@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<link href="/common/css/default.css">
+<title>パララックスのサンプルサイト</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style>
+
+
+#header{
+	background: white;
+	height: 130px;	
+    width: 100%;
+}
+
+#box1 {
+	background: url(01.jpg)  50% 0 no-repeat fixed;
+	color: white;
+	height: 900px;
+	overflow: hidden;
+    margin: 0 auto;
+}
+
+#box2 {
+    background: url(02.jpg) 50% 0 no-repeat fixed;
+	color: white;
+	height: 900px;
+	overflow: hidden;
+    margin: 0 auto;
+}
+
+
+#box2 .bg{
+	background: url(hanabi.png) 50% 0 no-repeat fixed;
+	height: 800px;
+	margin: 0 auto;
+	padding: 0;
+	width: 1000px;
+}
+
+</style>
+<script>
+$(function(){
+	var $window = $(window);
+	var windowHeight = $window.height(); 
+	$(window).scroll(function(){
+        move();
+		
+	});
+    var move = function(){
+		var y = $(this).scrollTop();
+
+        var pos1 = newPos(50, windowHeight, y, 900, 0.3);
+		$("#box1").css('background-position', pos1);
+		
+        var pos2 = newPos(50, windowHeight, y, 900, 0.3);
+		$("#box2").css('background-position', pos2);
+        var pos2bg = newPos(50, windowHeight, y, 1950, 0.9);
+		$("#box2 .bg").css('background-position', pos2bg);
+    }
+	var newPos = function(x, windowHeight, pos, adjuster, inertia){
+		return x + "% " + (-((windowHeight + pos) - adjuster) * inertia)  + "px";
+	}
+});
+	
+</script>
+</head>
+
+<body>
+
+<div id="header">
+	<div class="story">
+        <h1>パララックスサンプルサイト</h1>
+    </div> <!--.story-->
+</div> <!--#header-->
+<div id="box1">
+</div>
+<div id="box2">
+    <div class="bg"></div>
+</div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</body>
+</html>
